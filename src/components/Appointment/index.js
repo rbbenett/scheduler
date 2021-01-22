@@ -4,7 +4,7 @@ import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
 import Form from "./Form";
-import useVisualMode from "../../hooks/useVisualMode";
+import useVisualMode from "hooks/useVisualMode";
 
 
 
@@ -18,9 +18,22 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
-  const add = () => transition(CREATE);
+  function add() {
+    transition(CREATE);
+  }
 
-  const cancel = () => back();
+  function cancel() {
+    back();
+  }
+
+  function save(name, interviewer) {
+    const interview = {
+      student: name,
+      interviewer,
+    };
+    props.bookInterview(props.id, interview)
+    transition(SHOW);
+  }
 
   return (
     <article className="appointment">
@@ -29,10 +42,11 @@ export default function Appointment(props) {
         {mode === CREATE && (
           <Form
           interviewers={props.interviewers}
-          onCancel = {cancel}
+          onCancel={cancel}
+          onSave={save}
           />
         )}
-        {mode === SHOW && (
+        {mode === SHOW && props.interview && (
           <Show
             student={props.interview.student}
             interviewer={props.interview.interviewer}
