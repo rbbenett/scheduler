@@ -9,6 +9,17 @@ export default function useApplicationData() {
     interviewers: {},
   });
 
+  function getDay(day) {
+    const daysOfTheWeek = {
+      Monday: 0,
+      Tuesday: 1,
+      Wednesday: 2,
+      Thursday: 3,
+      Friday: 4
+    }
+    return daysOfTheWeek[day]
+  }
+
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),
@@ -32,10 +43,31 @@ export default function useApplicationData() {
       ...state.appointments[id],
       interview: { ...interview }
     };
+
     const appointments = {
       ...state.appointments,
       [id]: appointment
     };
+
+    const dayOfTheWeek = getDay(state.day)
+    let daySpots = {
+      ...state.days[dayOfTheWeek],
+      spots: state.days[dayOfTheWeek]
+    }
+    if (!state.appointments[id].interview) {
+      daySpots = {
+        ...state.days[dayOfTheWeek],
+        spots: state.days[dayOfTheWeek].spots - 1
+      }
+    } else {
+      daySpots = {
+        ...state.days[dayOfTheWeek],
+        spots: state.days[dayOfTheWeek.spots]
+      }
+    }
+
+    let spots = state.days
+    spots[dayOfTheWeek] = daySpots;
     return axios.put(
       `/api/appointments/${id}`,
       { interview }
@@ -43,7 +75,8 @@ export default function useApplicationData() {
       .then(() => {
         setState({
           ...state,
-          appointments
+          appointments,
+          spots
         });
     })
   };
@@ -53,10 +86,21 @@ export default function useApplicationData() {
       ...state.appointments[id],
       interview: null
     };
+
     const appointments = {
       ...state.appointments,
       [id]: appointment
     };
+
+    const dayOfTheWeek = getDay(state.day)
+    const daySpots = {
+      ...state.days[dayOfTheWeek],
+      spots: state.days[dayOfTheWeek].spots + 1
+      }
+      let spots = state.days
+      spots[dayOfTheWeek] = daySpots;
+    
+
     return axios.delete(
       `/api/appointments/${id}`,
       { interview }
@@ -64,7 +108,8 @@ export default function useApplicationData() {
       .then(() => {
         setState({
           ...state,
-          appointments
+          appointments,
+          spots
         });
       })
   };
