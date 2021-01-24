@@ -3,7 +3,8 @@ import axios from "axios";
 import reducer, {
   SET_DAY,
   SET_APPLICATION_DATA,
-  SET_INTERVIEW
+  SET_INTERVIEW,
+  UPDATE_SPOTS,
 } from "../reducer/application.js";
 
 export default function useApplicationData() {
@@ -15,17 +16,6 @@ export default function useApplicationData() {
   });
   
   const setDay = day => dispatch({ type: SET_DAY, value: day });
-
-  function getDay(day) {
-    const daysOfTheWeek = {
-      Monday: 0,
-      Tuesday: 1,
-      Wednesday: 2,
-      Thursday: 3,
-      Friday: 4
-    }
-    return daysOfTheWeek[day]
-  }
 
   useEffect(() => {
     let daysURL = '/api/days';
@@ -40,6 +30,9 @@ export default function useApplicationData() {
      [promiseDays, promiseApps, promiseInts]
     ).then((all) => {
       dispatch({ type: SET_APPLICATION_DATA, value: all });
+    })
+    .catch((err) => {
+      console.log(err)
     });
   }, []);
 
@@ -54,31 +47,18 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
-    const dayOfTheWeek = getDay(state.day)
-    let daySpots = {
-      ...state.days[dayOfTheWeek],
-      spots: state.days[dayOfTheWeek]
-    }
-    if (!state.appointments[id].interview) {
-      daySpots = {
-        ...state.days[dayOfTheWeek],
-        spots: state.days[dayOfTheWeek].spots - 1
-      }
-    } else {
-      daySpots = {
-        ...state.days[dayOfTheWeek],
-        spots: state.days[dayOfTheWeek.spots]
-      }
-    }
-
-    let spots = state.days
-    spots[dayOfTheWeek] = daySpots;
-    return axios
+   return axios
     .put(`/api/appointments/${id}`,
       { interview }
       )
       .then(() => {
         dispatch({ type: SET_INTERVIEW, value: appointments });
+    })
+      .then(() => {
+        dispatch({type: UPDATE_SPOTS});
+    })
+    .catch((err) => {
+      console.log(err)
     })
   };
 
@@ -93,21 +73,18 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
-    const dayOfTheWeek = getDay(state.day)
-    const daySpots = {
-      ...state.days[dayOfTheWeek],
-      spots: state.days[dayOfTheWeek].spots + 1
-      }
-      let spots = state.days
-      spots[dayOfTheWeek] = daySpots;
-    
-
     return axios
-    .delete(`/api/appointments/${id}`,
-      { interview }
-      )
+      .delete(`/api/appointments/${id}`,
+        { interview }
+        )
       .then(() => {
         dispatch({ type: SET_INTERVIEW, value: appointments });
+      })
+      .then(() => {
+        dispatch({type: UPDATE_SPOTS});
+      })
+      .catch((err) => {
+        console.log(err)
       })
   };
   
