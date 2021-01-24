@@ -38,6 +38,7 @@ export const UPDATE_SPOTS = "UPDATE_SPOTS";
       case SET_INTERVIEW: {
         return { ...state, appointments: action.value };
       };
+
       case UPDATE_SPOTS:
         return { ...state, days: setSpotsForDay() };
       default:

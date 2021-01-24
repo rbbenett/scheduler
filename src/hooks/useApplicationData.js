@@ -57,8 +57,8 @@ export default function useApplicationData() {
       .then(() => {
         dispatch({type: UPDATE_SPOTS});
     })
-    .catch((err) => {
-      console.log(err)
+      .catch((err) => {
+        console.log(err)
     })
   };
 
