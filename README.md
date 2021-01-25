@@ -13,11 +13,11 @@
 !["screenshot of main page with new appointment form opened"](https://raw.githubusercontent.com/rbbenett/scheduler/1018ae935bd93bbd0268553455efd4713bd5e790/public/images/New_Appointment_Form.png)
 :point_down::point_down::point_down:What the Main page looks like with the new appointment form filled out:point_down::point_down::point_down:
 !["screenshot of main page with new appointment form filled out"](https://raw.githubusercontent.com/rbbenett/scheduler/1018ae935bd93bbd0268553455efd4713bd5e790/public/images/New_Appointment_Form_Filled.png)
-:point_down::point_down::point_down:What the saving message looks like when new appointment is saved:point_down::point_down::point_down:
+:point_down::point_down::point_down:What the message looks like when a new appointment is saved:point_down::point_down::point_down:
 !["screenshot of saving message"](https://raw.githubusercontent.com/rbbenett/scheduler/1018ae935bd93bbd0268553455efd4713bd5e790/public/images/Saving_Message.png)
 :point_down::point_down::point_down:What the delete confirmation looks like:point_down::point_down::point_down:
 !["screenshot of delete confirmation message"](https://raw.githubusercontent.com/rbbenett/scheduler/1018ae935bd93bbd0268553455efd4713bd5e790/public/images/Delete_Confirmation.png)
-:point_down::point_down::point_down:What the deleting message looks like when delete form is appointment is confirmed:point_down::point_down::point_down:
+:point_down::point_down::point_down:What the message looks like when delete appointment is confirmed:point_down::point_down::point_down:
 !["screenshot of delete confirmation message"](https://raw.githubusercontent.com/rbbenett/scheduler/1018ae935bd93bbd0268553455efd4713bd5e790/public/images/Deleting_Message.png)
 
 ## Setup
