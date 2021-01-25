@@ -35,10 +35,8 @@ export const UPDATE_SPOTS = "UPDATE_SPOTS";
         const appointments = action.value[1].data;
         const interviewers = action.value[2].data;
         return { ...state, days, appointments, interviewers };
-      case SET_INTERVIEW: {
+      case SET_INTERVIEW: 
         return { ...state, appointments: action.value };
-      };
-
       case UPDATE_SPOTS:
         return { ...state, days: setSpotsForDay() };
       default:
