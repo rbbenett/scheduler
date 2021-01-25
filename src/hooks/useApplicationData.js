@@ -7,6 +7,7 @@ import reducer, {
   UPDATE_SPOTS,
 } from "../reducer/application.js";
 
+
 export default function useApplicationData() {
     const [state, dispatch] = useReducer(reducer, {
     day: "Monday",
