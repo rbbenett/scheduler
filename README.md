@@ -1,6 +1,6 @@
 # Interview Scheduler
 
-:calendar::calendar::calendar:Interview Scheduler is a React application that allows users to book and cancel interviews.:calendar::calendar::calendar:
+:calendar::calendar::calendar:Interview Scheduler is a Single Page Application built using React that allows users to book and cancel interviews.:calendar::calendar::calendar:
 
 ## Screenshots
 :point_down::point_down::point_down:What the Main page looks like:point_down::point_down::point_down:
