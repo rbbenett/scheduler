@@ -30,9 +30,6 @@ export default function useApplicationData() {
      [promiseDays, promiseApps, promiseInts]
     ).then((all) => {
       dispatch({ type: SET_APPLICATION_DATA, value: all });
-    })
-    .catch((err) => {
-      console.log(err)
     });
   }, []);
 
@@ -56,9 +53,6 @@ export default function useApplicationData() {
     })
       .then(() => {
         dispatch({type: UPDATE_SPOTS});
-    })
-      .catch((err) => {
-        console.log(err)
     })
   };
 
