@@ -9,7 +9,7 @@
 !["screenshot of main page with different day hovered over"](https://raw.githubusercontent.com/rbbenett/scheduler/1018ae935bd93bbd0268553455efd4713bd5e790/public/images/New_Day_Selected.png)
 :point_down::point_down::point_down:What the Main page looks like when user hovers over an existing appointment:point_down::point_down::point_down:
 !["screenshot of main page with existing appointment hovered over"](https://raw.githubusercontent.com/rbbenett/scheduler/1018ae935bd93bbd0268553455efd4713bd5e790/public/images/Appointment_Selected.png)
-:point_down::point_down::point_down:What the Main page looks like with a new appointment form opened:
+:point_down::point_down::point_down:What the Main page looks like with a new appointment form opened:point_down::point_down::point_down:
 !["screenshot of main page with new appointment form opened"](https://raw.githubusercontent.com/rbbenett/scheduler/1018ae935bd93bbd0268553455efd4713bd5e790/public/images/New_Appointment_Form.png)
 :point_down::point_down::point_down:What the Main page looks like with the new appointment form filled out:point_down::point_down::point_down:
 !["screenshot of main page with new appointment form filled out"](https://raw.githubusercontent.com/rbbenett/scheduler/1018ae935bd93bbd0268553455efd4713bd5e790/public/images/New_Appointment_Form_Filled.png)
