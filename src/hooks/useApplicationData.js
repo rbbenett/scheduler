@@ -5,7 +5,7 @@ import reducer, {
   SET_APPLICATION_DATA,
   SET_INTERVIEW,
   UPDATE_SPOTS,
-} from "../reducer/application.js";
+} from "../reducers/application.js";
 
 
 export default function useApplicationData() {
@@ -78,10 +78,7 @@ export default function useApplicationData() {
       .then(() => {
         dispatch({type: UPDATE_SPOTS});
       })
-      .catch((err) => {
-        console.log(err)
-      })
-  };
+    };
   
   return {
     state,
